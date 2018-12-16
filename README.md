@@ -1,3 +1,8 @@
+Note to self: 
+1. Web should append all new reservations until 5 tables are filled then the rest will go to waiting list
+2. Needs to separate functionality to respective file. 
+
+
 Development Phases
 Initial Instructions
 Today you will be building a Node / Express based web applications for handling reservation requests.
