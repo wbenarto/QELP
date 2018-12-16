@@ -1,0 +1,17 @@
+{
+  "name": "QELP",
+  "version": "1.0.0",
+  "description": "Development Phases\r Initial Instructions\r Today you will be building a Node / Express based web applications for handling reservation requests.",
+  "main": "express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ajax": "0.0.4",
+    "express": "^4.16.4"
+  }
+}

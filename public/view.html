@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Webe Sushi</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>~Welcome to Webe Sushi~</h1>
+      <h3>Reserved:</h3>
+      <hr>
+      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span>Add New Reservation</button></a>
+      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-home"></span></button></a>
+      <a href="/reservation"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>View Reservation api</button></a>
+      <a href="/wait"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>View Waiting list api</button></a>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+
+        <!-- <div class="card mb-4">
+          <div class="card-header">
+            <h3><strong>Character Search</strong></h3>
+          </div>
+          <div class="card-body">
+            <input type="text" id="character-search" class="form-control">
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="fa fa-search"></span> Search
+                Your Feelings. You know it is true.</button>
+
+            </div>
+          </div>
+        </div> -->
+
+        <div class="card" id="reserved">
+          <div class="card-header">
+            <h3><strong>Current Reservation</strong></h3>
+          </div>
+          <div class="card-body">
+            <div>
+              <h3><strong>#</strong> <span id="line-res"></span></h3>
+              <h3><strong>Name:</strong> <span id="name-res"></span></h3>
+              <h3><strong>Phone:</strong> <span id="phone-res"></span></h3>  
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="wait">
+            <div class="card-header">
+              <h3><strong>Waiting List</strong></h3>
+            </div>
+            <div class="card-body">
+              <div>
+                <h3><strong>#</strong> <span id="line-wait">1</span></h3>
+                <h3><strong>Name:</strong> <span id="name-wait">Test Name Wait</span></h3>
+                <h3><strong>Phone:</strong> <span id="phone-wait">Test Num 415 Wait</span></h3>  
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        console.log("ready");
+        showReserved();
+    });
+
+    function showReserved() {
+        $.get("/reservation", function(data) {
+        console.log(data);
+        if (data) {
+        //   $("#line-res").show();
+        for (var i = 0; i < data.length; i++) {
+          $("#name-res").text(data[i].name);
+          $("#phone-res").text(data[i].phone);
+        }
+        }  
+      });
+    };
+
+
+
+
+
+  </script>
+</body>
+
+</html>
